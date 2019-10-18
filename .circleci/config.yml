@@ -17,7 +17,7 @@ jobs:
           - run:
               name: Add Run
               command: |
-                # URL to add run.
+                # URL to add run. 
                 ADD_RUN_URL='http://localhost:8080/AutomationServices/rs/as/add?LicenseKey=FBC346LKDJEEID42DD5D259CF4ED33EA887B0D5E590949716AFA533748036813CFB&Comments=CircleCI&WaitForRunToComplete=true&AbortRunOnScenarioFail=false&Tag=@Test_Set$smoke&BuildScriptApplication=CircleCI&TestData=TD_FBC_INVENTORY_URL:https://lodestone-automation-test.thesymphony.cloud,TD_USER1_EMAIL:dhruvil@fb.com,TD_USER1_PASS:&BuildScriptNumber='+$CIRCLE_BUILD_NUM
                 echo $ADD_RUN_URL
                 # The secondary container will add run. 
