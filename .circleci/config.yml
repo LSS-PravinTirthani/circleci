@@ -29,7 +29,7 @@ jobs:
                 #FAIL_COUNT=$(echo $RUN_STATUS | sed -e 's/.*Fail - \(.*\) Abort.*/\1/')
                 #if [[ $FAIL_COUNT > 0 ]]; then
                 #   exit 1
-                #fi
+                #fi 
                 # Auto Time-out script. 
               no_output_timeout: 2h
           - run: sleep 90    
