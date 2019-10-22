@@ -37,10 +37,4 @@ workflows:
     "FBC Web Test Workflow":
         jobs:
            - FBCWebTest
-    scheduled-workflow:
-    triggers:
-      - schedule:
-          cron: "0,40 * * * *"
-          filters:
-            branches:
-              only: master
+    
