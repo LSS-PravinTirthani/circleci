@@ -17,8 +17,8 @@ jobs:
           - run:
               name: Add Run
               command: |
-                # URL to add run.  
-                ADD_RUN_URL='http://localhost:8080/AutomationServices/rs/as/add?LicenseKey=FBC346LKDJEEID42DD5D259CF4ED33EA887B0D5E590949716AFA533748036813CFB&Comments=CircleCI&WaitForRunToComplete=true&AbortRunOnScenarioFail=false&Tag=@Test_Set$smoke&BuildScriptApplication=CircleCI&TestData=TD_FBC_INVENTORY_URL:https://lodestone-automation-test.thesymphony.cloud,TD_USER1_EMAIL:dhruvil@fb.com,TD_USER1_PASS:&BuildScriptNumber='+$CIRCLE_BUILD_NUM
+                # URL to add run.
+                ADD_RUN_URL='http://localhost:8080/AutomationServices/rs/as/add?LicenseKey=FBC346LKDJEEID42DD5D259CF4ED33EA887B0D5E590949716AFA533748036813CFB&Comments=CircleCI&WaitForRunToComplete=true&AbortRunOnScenarioFail=false&Tag=@Test_Set$smoke&BuildScriptApplication=CircleCI&TestData=TD_FBC_INVENTORY_URL:https://lodestone-automation-test.thesymphony.cloud,TD_USER1_EMAIL:test@staging.com,TD_USER1_PASS:test@staging.com&BuildScriptNumber='+$CIRCLE_BUILD_NUM
                 echo $ADD_RUN_URL
                 # The secondary container will add run. 
                 docker run --network container:automation_docker appropriate/curl -s --retry 3 $ADD_RUN_URL
@@ -36,4 +36,11 @@ jobs:
 workflows:
     "FBC Web Test Workflow":
         jobs:
-           - FBCWebTest           
+           - FBCWebTest
+    scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0,40 * * * *"
+          filters:
+            branches:
+              only: master
