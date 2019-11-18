@@ -6,12 +6,13 @@ jobs:
         docker:
           - image: lssautomation/fbcweb:staging 
             name: automation_docker
+        docker_layer_caching: true   
         resource_class: medium
         steps:
           - run: sleep 30
           - run:
               name: Add Run
-              command: curl --version
+              command: curl 'http://localhost:8080/AutomationServices/rs/as/msg/test'
 workflows:
     "FBC Web Test Workflow":
         jobs:
