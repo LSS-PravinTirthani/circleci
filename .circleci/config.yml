@@ -4,7 +4,7 @@ jobs:
     FBCWebTest:
          # The primary container is an instance of the first image listed. The job's commands run in this container.
         docker:
-          - image: circleci/ruby:2.4-node
+          - image: circleci/openjdk:11.0.3-jdk-stretch
         parallelism: 4  
         resource_class: medium
         steps:
