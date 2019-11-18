@@ -5,8 +5,7 @@ jobs:
          # The primary container is an instance of the first image listed. The job's commands run in this container.
         docker:
           - image: lssautomation/fbcweb:staging 
-            name: automation_docker
-        docker_layer_caching: true   
+            name: automation_docker 
         resource_class: medium
         steps:
           - run: sleep 30
