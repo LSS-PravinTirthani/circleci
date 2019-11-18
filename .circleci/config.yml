@@ -18,7 +18,7 @@ jobs:
               name: Add Run
               command: |
                 # URL to add run.
-                ADD_RUN_URL='http://localhost:8080/AutomationServices/rs/as/add?LicenseKey=2MZS5YFLF6DP4C7RSCPX6NPMS7BXNODWUN83IBV04AQSVKGRMCDLOCALSTAGINGDB&Comments=CircleCI&WaitForRunToComplete=true&AbortRunOnScenarioFail=true&Tag=@Test_Set$smoke&BuildScriptApplication=CircleCI&TestData=TD_FBC_INVENTORY_URL:https://lodestone-automation-test.thesymphony.cloud,TD_USER1_EMAIL:test@prod.com,TD_USER1_PASS:test@prod.com&BuildScriptNumber='+$CIRCLE_BUILD_NUM
+                ADD_RUN_URL='http://localhost:8080/AutomationServices/rs/as/add?LicenseKey=2MZS5YFLF6DP4C7RSCPX6NPMS7BXNODWUN83IBV04AQSVKGRMCDLOCALSTAGINGDB&Comments=CircleCI&WaitForRunToComplete=true&AbortRunOnScenarioFail=false&Tag=@Test_Set$smoke&BuildScriptApplication=CircleCI&TestData=TD_FBC_INVENTORY_URL:https://lodestone-automation-test.thesymphony.cloud,TD_USER1_EMAIL:test@prod.com,TD_USER1_PASS:test@prod.com&BuildScriptNumber='+$CIRCLE_BUILD_NUM
                 echo $ADD_RUN_URL
                 # The secondary container will add run. 
                 docker run --network container:automation_docker appropriate/curl -s --retry 3 $ADD_RUN_URL
