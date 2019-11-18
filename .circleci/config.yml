@@ -5,14 +5,9 @@ jobs:
          # The primary container is an instance of the first image listed. The job's commands run in this container.
         docker:
           - image: lssautomation/fbcweb:staging 
+          
         resource_class: medium
         steps:
-          #- setup_remote_docker
-          # The secondary container run in a primary container.  
-          #- run:          
-           #   name: Start FBC Web Test Docker
-           #   command: docker run -dit -p 4000:8080 --name=automation_docker lssautomation/fbcweb:staging 
-                #docker run -d -p 4000:8080 --name=Automation_Docker lssautomation/fbcweb:staging
           - run: sleep 30
           - run:
               name: Add Run
