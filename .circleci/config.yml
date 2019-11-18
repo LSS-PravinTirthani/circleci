@@ -31,7 +31,7 @@ jobs:
                 #   exit 1
                 #fi  
                 # Auto Time-out script. 
-              no_output_timeout: 2h 
+              no_output_timeout: 2h
           - run: sleep 90 
 workflows:
     "FBC Web Test Workflow":
