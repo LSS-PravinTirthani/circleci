@@ -1,11 +1,10 @@
-version: 2.1
+version: 2.0
 
 jobs:
     FBCWebTest:
          # The primary container is an instance of the first image listed. The job's commands run in this container.
         docker:
           - image: circleci/openjdk:11.0.3-jdk-stretch
-        parallelism: 4  
         resource_class: medium
         steps:
           - setup_remote_docker
@@ -14,7 +13,7 @@ jobs:
               name: Start FBC Web Test Docker
               command: docker run -dit -p 4000:8080 --name=automation_docker lssautomation/fbcweb:staging 
                 #docker run -d -p 4000:8080 --name=Automation_Docker lssautomation/fbcweb:staging
-          - run: sleep 30
+          - run: dockerize -wait tcp://localhost:8080 -timeout 1m
           - run:
               name: Add Run
               command: |
