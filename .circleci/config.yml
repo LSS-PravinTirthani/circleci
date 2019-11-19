@@ -4,6 +4,7 @@ jobs:
     FBCWebTest:
          # The primary container is an instance of the first image listed. The job's commands run in this container.
         machine: true
+        resource-class: medium
         steps:
           - run : |
               docker run -dit -p 4000:8080 --name=automation_docker lssautomation/fbcweb:staging 
