@@ -5,8 +5,7 @@ jobs:
          # The primary container is an instance of the first image listed. The job's commands run in this container.
         docker:
           - image: circleci/ruby:2.4-node
-		
-        resource_class: medium
+	resource_class: medium
         steps:
           - setup_remote_docker
           # The secondary container run in a primary container.  
