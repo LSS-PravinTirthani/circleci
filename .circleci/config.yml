@@ -11,9 +11,6 @@ jobs:
           - run: sleep 30
           - run:
               name: Curl Version
-              command: docker ps
-          - run:
-              name: Curl Version
               command: ps aux | grep java
           - run:
               name: Add Run
