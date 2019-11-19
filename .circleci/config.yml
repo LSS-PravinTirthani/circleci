@@ -8,8 +8,8 @@ jobs:
           - run : |
               docker run -dit -p 4000:8080 --name=automation_docker lssautomation/fbcweb:staging 
               docker ps -all
-              sleep 10
-              curl --retry 10 --retry-delay 5 -v 'http://localhost:4000/AutomationServices/rs/as/add?LicenseKey=2MZS5YFLF6DP4C7RSCPX6NPMS7BXNODWUN83IBV04AQSVKGRMCDLOCALSTAGINGDB&Comments=CircleCI&WaitForRunToComplete=true&AbortRunOnScenarioFail=false&Tag=@Test_Set$smoke&BuildScriptApplication=CircleCI&TestData=TD_FBC_INVENTORY_URL:https://lodestone-automation-test.thesymphony.cloud,TD_USER1_EMAIL:test@prod.com,TD_USER1_PASS:test@prod.com&BuildScriptNumber='+$CIRCLE_BUILD_NUM    
+              sleep 30
+              curl -s --retry 3 'http://localhost:4000/AutomationServices/rs/as/add?LicenseKey=2MZS5YFLF6DP4C7RSCPX6NPMS7BXNODWUN83IBV04AQSVKGRMCDLOCALSTAGINGDB&Comments=CircleCI&WaitForRunToComplete=true&AbortRunOnScenarioFail=false&Tag=@Test_Set$smoke&BuildScriptApplication=CircleCI&TestData=TD_FBC_INVENTORY_URL:https://lodestone-automation-test.thesymphony.cloud,TD_USER1_EMAIL:test@prod.com,TD_USER1_PASS:test@prod.com&BuildScriptNumber='+$CIRCLE_BUILD_NUM    
 workflows:
     "FBC Web Test Workflow":
         jobs:
